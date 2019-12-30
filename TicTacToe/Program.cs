@@ -24,6 +24,8 @@ namespace TicTacToe
 
             Console.WriteLine("Player 1, Select your square");
             char move = Console.ReadKey().KeyChar;
+            counter++;
+            Console.WriteLine();
 
             Validate.Move(counter, initBoard, move);
 

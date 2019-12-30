@@ -41,12 +41,12 @@ namespace TicTacToe
                 switch (caseSwitch)
                 {
 
-                    case "o":
+                    case "O":
                         Console.WriteLine("Player 1 Wins.");
                         Console.WriteLine("Press a key to continue:");
                         Console.Read();
                         break;
-                    case "x":
+                    case "X":
                         Console.WriteLine("Player 2 Wins.");
                         Console.WriteLine("Press a key to continue:");
                         Console.Read();
