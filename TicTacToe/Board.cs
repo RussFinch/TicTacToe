@@ -38,8 +38,6 @@ namespace TicTacToe
             {
                 string caseSwitch = validateBoard[0, 0];
 
-
-
                 switch (caseSwitch)
                 {
 
@@ -57,7 +55,7 @@ namespace TicTacToe
 
                 }
 
-                BoardLayout(initBoard);
+                BoardLayout(validateBoard);
             }
 
         }
