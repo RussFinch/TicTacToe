@@ -27,10 +27,11 @@ namespace TicTacToe
                     (vMove.Equals(9) && (board[2, 2].Equals("X") || board[2, 2].Equals("O"))))
                 {
                     Console.WriteLine("This square has already been used.  Try again.");
+                    return result;
                 }
                 else
                 {
-                    Console.WriteLine("That is a succcessful move.");
+                    TakeTurn.NextTurn()
                 }
 
 
@@ -47,7 +48,6 @@ namespace TicTacToe
                     Console.WriteLine("Player 2, Please enter a valid move (1-9).");
                 }
             }
-
 
             return result;
 
