@@ -14,7 +14,7 @@ namespace TicTacToe
             // If the entered move is acceptable continue
             if (vMove >= 1 && vMove <= 9)
             {
-                // Make sure the square has not already been used.
+                // Verify the square has not already been used.
                 if (
                     (vMove.Equals(1) && (board[0, 0].Equals("X") || board[0, 0].Equals("O"))) ||
                     (vMove.Equals(2) && (board[0, 1].Equals("X") || board[0, 1].Equals("O"))) ||
@@ -31,14 +31,13 @@ namespace TicTacToe
                 }
                 else
                 {
-                    TakeTurn.NextTurn()
+                    // The move is successfully validated.
+                    result = true;
+                    return result;
                 }
-
-
             }
             else
             {
-
                 if (counter % 2 == 0)
                 {
                     Console.WriteLine("Player 1, Please enter a valid move (1-9).");
@@ -51,6 +50,34 @@ namespace TicTacToe
 
             return result;
 
+        }
+
+        public static bool Win(string[,] currentBoard)
+        {
+            string[,] validateBoard = currentBoard;
+            bool winner = false;
+
+            // Validate Horizontal winning lines
+            if (((validateBoard[0, 0] == validateBoard[0, 1]) && (validateBoard[0, 1] == validateBoard[0, 2])) ||
+                ((validateBoard[1, 0] == validateBoard[1, 1]) && (validateBoard[1, 1] == validateBoard[1, 2])) ||
+                ((validateBoard[2, 0] == validateBoard[2, 1]) && (validateBoard[2, 1] == validateBoard[2, 2])) ||
+            // Validate Vertical winning lines
+                ((validateBoard[0, 0] == validateBoard[1, 0]) && (validateBoard[1, 0] == validateBoard[2, 0])) ||
+                ((validateBoard[0, 1] == validateBoard[1, 1]) && (validateBoard[1, 1] == validateBoard[2, 1])) ||
+                ((validateBoard[0, 2] == validateBoard[1, 2]) && (validateBoard[1, 2] == validateBoard[2, 2])) ||
+            // Validate Diagonal winning lines
+                ((validateBoard[0, 0] == validateBoard[1, 1]) && (validateBoard[1, 1] == validateBoard[2, 2])) ||
+                ((validateBoard[0, 2] == validateBoard[1, 1]) && (validateBoard[1, 1] == validateBoard[2, 0])))
+            {
+
+                winner = true;
+                return winner;
+                
+            }
+            else
+            {
+                return winner;
+            }
         }
     }
 }

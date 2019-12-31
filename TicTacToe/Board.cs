@@ -19,45 +19,5 @@ namespace TicTacToe
             Console.WriteLine("   |   |   ");
 
         }
-
-        public static void validate(string[,] currentBoard)
-        {
-            string[,] validateBoard = currentBoard;
-
-            // Validate Horizontal winning lines
-            if (((validateBoard[0, 0] == validateBoard[0, 1]) && (validateBoard[0, 1] == validateBoard[0, 2])) ||
-                ((validateBoard[1, 0] == validateBoard[1, 1]) && (validateBoard[1, 1] == validateBoard[1, 2])) ||
-                ((validateBoard[2, 0] == validateBoard[2, 1]) && (validateBoard[2, 1] == validateBoard[2, 2])) ||
-            // Validate Vertical winning lines
-                ((validateBoard[0, 0] == validateBoard[1, 0]) && (validateBoard[1, 0] == validateBoard[2, 0])) ||
-                ((validateBoard[0, 1] == validateBoard[1, 1]) && (validateBoard[1, 1] == validateBoard[2, 1])) ||
-                ((validateBoard[0, 2] == validateBoard[1, 2]) && (validateBoard[1, 2] == validateBoard[2, 2])) ||
-            // Vlaidate Diagonal winning lines
-                ((validateBoard[0, 0] == validateBoard[1, 1]) && (validateBoard[1, 1] == validateBoard[2, 2])) ||
-                ((validateBoard[0, 2] == validateBoard[1, 1]) && (validateBoard[1, 1] == validateBoard[2, 0])))
-            {
-                string caseSwitch = validateBoard[0, 0];
-
-                switch (caseSwitch)
-                {
-
-                    case "O":
-                        Console.WriteLine("Player 1 Wins.");
-                        Console.WriteLine("Press a key to continue:");
-                        Console.Read();
-                        break;
-                    case "X":
-                        Console.WriteLine("Player 2 Wins.");
-                        Console.WriteLine("Press a key to continue:");
-                        Console.Read();
-                        break;
-
-
-                }
-
-                BoardLayout(validateBoard);
-            }
-
-        }
     }
 }

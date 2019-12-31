@@ -13,22 +13,14 @@ namespace TicTacToe
 
         public static void InitBoard()
         {
-            int counter = 0;
+            int counter = 1;
             string[,] initBoard = {
                 {"1", "2", "3"},
                 {"4", "5", "6"},
                 {"7", "8", "9"}
             };
 
-            Board.BoardLayout(initBoard);
-
-            Console.WriteLine("Player 1, Select your square");
-            char move = Console.ReadKey().KeyChar;
-            counter++;
-            Console.WriteLine();
-
-            Validate.Move(counter, initBoard, move);
-
+            TakeTurn.NextTurn(counter, initBoard);
 
         }
     }

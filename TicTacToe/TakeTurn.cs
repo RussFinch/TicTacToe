@@ -7,19 +7,30 @@ namespace TicTacToe
         {
             int turnCounter = counter;
             string[,] turnBoard = board;
+            string playerName;
             string player;
+
+            // check for a draw.
+            if (turnCounter == 10)
+            {
+                Console.WriteLine("This is a draw.  Press key to continue");
+                Console.ReadKey();
+                MainClass.InitBoard();
+            }
 
             Board.BoardLayout(turnBoard);
 
-            if (counter % 2 == 0)
+            if (counter % 2 == 1)
             {
-                player = "Player 1";
-                Console.WriteLine("{0}, Select your square.", player);
+                playerName = "Player 1";
+                player = "O";
+                Console.WriteLine("{0}, Select your square.", playerName);
             }
             else
             {
-                player = "Player 2";
-                Console.WriteLine("{0}, Select your square.", player);
+                playerName = "Player 2";
+                player = "X";
+                Console.WriteLine("{0}, Select your square.", playerName);
             }
 
             char move = Console.ReadKey().KeyChar;
@@ -60,15 +71,40 @@ namespace TicTacToe
                         turnBoard[2, 2] = player;
                         break;
                 }
-
-                Board.BoardLayout(turnBoard);
             }
             else if (!validated)
             {
                 NextTurn(counter, turnBoard);
             }
 
+            if (Validate.Win(turnBoard))
+            {
+                switch (player)
+                {
+
+                    case "O":
+                        Console.Clear();
+                        Board.BoardLayout(turnBoard);
+                        Console.WriteLine("{0} Wins.", playerName);
+                        Console.WriteLine("Press a key to continue:");
+                        Console.Read();
+                        break;
+                    case "X":
+                        Console.Clear();
+                        Board.BoardLayout(turnBoard);
+                        Console.WriteLine("{0} Wins.", playerName);
+                        Console.WriteLine("Press a key to continue:");
+                        Console.Read();
+                        break;
+                }
+
+                Console.Clear();
+                MainClass.InitBoard();
+            }
+
+
             turnCounter++;
+            Console.Clear();
             NextTurn(turnCounter, turnBoard);
 
         }
